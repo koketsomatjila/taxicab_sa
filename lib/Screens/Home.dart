@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taxicab_sa/Common/Drawer.dart';
+import 'package:taxicab_sa/Common/screen_navigation.dart';
+import 'package:taxicab_sa/Screens/Gauteng.dart';
+import 'package:taxicab_sa/Screens/News.dart';
+import 'package:taxicab_sa/Screens/NorthWest.dart';
+import 'package:taxicab_sa/Screens/Traffic.dart';
+import 'package:taxicab_sa/Screens/Welcome.dart';
+import 'package:taxicab_sa/Screens/WesternCape.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -25,222 +33,7 @@ class _HomeState extends State<Home> {
         ),
         extendBodyBehindAppBar: true,
         // menu drawer
-        drawer: Drawer(
-          child: Stack(
-            children: [
-              Image.asset('images/jozi.jpg',
-                  fit: BoxFit.cover,
-                  height: double.infinity,
-                  width: double.infinity,
-                  color: Colors.black.withOpacity(0.6),
-                  colorBlendMode: BlendMode.srcOver),
-              Container(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 38.0),
-                    child: Column(
-                      children: [
-                        // Container(
-                        //     child: Padding(
-                        //   padding: const EdgeInsets.all(18.0),
-                        //   child: Image.asset(
-                        //     'images/tcsalogo.png',
-                        //     height: 80,
-                        //     alignment: Alignment.centerLeft,
-                        //   ),
-                        // )),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Home',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.home,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Fare Calculator',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.calculate,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Gauteng',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.local_taxi_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Western Cape',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.local_taxi_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'North West',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.local_taxi_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Kwa-Zulu Natal',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.local_taxi_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Mpumalanga',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.local_taxi_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Limpopo',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.local_taxi_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Freestate',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.local_taxi_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Northern Cape',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.local_taxi_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Eastern Cape',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.local_taxi_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Divider(
-                          height: 27,
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'About',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.help_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: ListTile(
-                            title: Text(
-                              'Contact Us',
-                              style: TextStyle(color: Colors.orange[100]),
-                            ),
-                            leading: Icon(
-                              Icons.mail,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        drawer: AppDrawer(),
 
         // home body
         body: Stack(children: [
@@ -248,11 +41,11 @@ class _HomeState extends State<Home> {
               fit: BoxFit.cover,
               height: double.infinity,
               // width: double.infinity,
-              color: Colors.yellow[700].withOpacity(0.4),
+              color: Colors.yellow[700].withOpacity(0.5),
               colorBlendMode: BlendMode.srcOver),
           Container(
             child: Padding(
-              padding: const EdgeInsets.only(top: 78.0),
+              padding: const EdgeInsets.only(top: 58.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -260,7 +53,9 @@ class _HomeState extends State<Home> {
                     Padding(
                       padding: const EdgeInsets.only(top: 28, bottom: 18),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          changeScreen(context, Welcome());
+                        },
                         child: ListTile(
                           title: Icon(
                             Icons.thumb_up,
@@ -288,7 +83,9 @@ class _HomeState extends State<Home> {
                     Padding(
                       padding: const EdgeInsets.only(top: 18, bottom: 18),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          changeScreen(context, News());
+                        },
                         child: ListTile(
                           title: Icon(
                             Icons.article,
@@ -316,7 +113,9 @@ class _HomeState extends State<Home> {
                     Padding(
                       padding: const EdgeInsets.only(top: 18, bottom: 18),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          changeScreen(context, Traffic());
+                        },
                         child: ListTile(
                           title: Icon(
                             Icons.traffic,
@@ -344,7 +143,9 @@ class _HomeState extends State<Home> {
                     Padding(
                       padding: const EdgeInsets.only(top: 18, bottom: 18),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          changeScreen(context, Gauteng());
+                        },
                         child: ListTile(
                           title: Icon(
                             Icons.local_taxi,
@@ -372,7 +173,9 @@ class _HomeState extends State<Home> {
                     Padding(
                       padding: const EdgeInsets.only(top: 18, bottom: 18),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          changeScreen(context, WesternCape());
+                        },
                         child: ListTile(
                           title: Icon(
                             Icons.local_taxi,
@@ -400,7 +203,9 @@ class _HomeState extends State<Home> {
                     Padding(
                       padding: const EdgeInsets.only(top: 18, bottom: 18),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          changeScreen(context, NorthWest());
+                        },
                         child: ListTile(
                           title: Icon(
                             Icons.local_taxi,

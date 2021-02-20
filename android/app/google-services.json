@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "826200011053",
+    "project_id": "taxi-cab-sa",
+    "storage_bucket": "taxi-cab-sa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826200011053:android:e06b224b972874960f63a4",
+        "android_client_info": {
+          "package_name": "com.tcsaapp.taxicab_sa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826200011053-mlaidp0ivt12gm864gi1n0mg89mebh68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbmN_E9CfCKy18stNdm_0ftM9fzni6ofE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826200011053-mlaidp0ivt12gm864gi1n0mg89mebh68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
