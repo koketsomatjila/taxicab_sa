@@ -14,8 +14,13 @@ class _CalculatorState extends State<Calculator> {
   TextEditingController fareController = TextEditingController();
   TextEditingController passengerController = TextEditingController();
   TextEditingController amountController = TextEditingController();
-  String amountDue;
-  // String _change;
+
+  double firstValue = 0;
+  double secondValue = 0;
+  double thirdValue = 0;
+
+  double amountDue = 0;
+  double change = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -90,17 +95,22 @@ class _CalculatorState extends State<Calculator> {
                       borderRadius: BorderRadius.circular(15)),
                   child: Padding(
                     padding: EdgeInsets.only(left: 10),
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      controller: fareController,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "R",
-                      ),
-                      // onChanged: (value) {
-                      //   calculate();
-                      // },
-                    ),
+                    child: TextField(
+                        keyboardType: TextInputType.number,
+                        controller: fareController,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "R",
+                        ),
+                        onChanged: (value) {
+                          if (value.isEmpty) {
+                            setState(() => firstValue = 0);
+                          } else {
+                            setState(() {
+                              firstValue = double.parse(value);
+                            });
+                          }
+                        }),
                   ),
                 ),
               ),
@@ -131,16 +141,21 @@ class _CalculatorState extends State<Calculator> {
                       borderRadius: BorderRadius.circular(15)),
                   child: Padding(
                     padding: EdgeInsets.only(left: 10),
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      controller: passengerController,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                      ),
-                      // onChanged: (value) {
-                      //   calculate();
-                      // },
-                    ),
+                    child: TextField(
+                        keyboardType: TextInputType.number,
+                        controller: passengerController,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                        ),
+                        onChanged: (value) {
+                          if (value.isEmpty) {
+                            setState(() => secondValue = 0);
+                          } else {
+                            setState(() {
+                              secondValue = double.parse(value);
+                            });
+                          }
+                        }),
                   ),
                 ),
               ),
@@ -171,12 +186,18 @@ class _CalculatorState extends State<Calculator> {
                       borderRadius: BorderRadius.circular(15)),
                   child: Padding(
                     padding: EdgeInsets.only(left: 10),
-                    child: TextFormField(
+                    child: TextField(
                       keyboardType: TextInputType.number,
                       controller: amountController,
-                      // onChanged: (value) {
-                      //   calculate();
-                      // },
+                      onChanged: (value) {
+                        if (value.isEmpty) {
+                          setState(() => thirdValue = 0);
+                        } else {
+                          setState(() {
+                            thirdValue = double.parse(value);
+                          });
+                        }
+                      },
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: "R",
@@ -209,9 +230,9 @@ class _CalculatorState extends State<Calculator> {
                         ),
                       ),
                       TextSpan(
-                        text: amountDue,
+                        text: 'R  ${firstValue * secondValue}',
                         style: GoogleFonts.aclonica(
-                            color: Colors.black, fontSize: 20),
+                            color: Colors.black, fontSize: 30),
                       ),
                     ],
                   ),
@@ -242,31 +263,32 @@ class _CalculatorState extends State<Calculator> {
                         ),
                       ),
                       TextSpan(
-                        text: "R100",
+                        text: "R  ${thirdValue - (firstValue * secondValue)}",
                         style: GoogleFonts.aclonica(
-                            color: Colors.black, fontSize: 20),
+                            color: Colors.black, fontSize: 30),
                       ),
                     ],
                   ),
                 ),
               ),
               //calculate button
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8, 28, 150, 20),
-                child: MaterialButton(
-                  height: 50,
-                  elevation: 5,
-                  child: Text(
-                    'Calculate',
-                    style: TextStyle(fontSize: 25),
-                  ),
-                  color: Colors.red,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    calculate();
-                  },
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(8, 28, 150, 20),
+              //   child: MaterialButton(
+              //     height: 50,
+              //     elevation: 5,
+              //     child: Text(
+              //       'Calculate',
+              //       style: TextStyle(fontSize: 25),
+              //     ),
+              //     color: Colors.red,
+              //     textColor: Colors.white,
+              //     onPressed: () async {
+              //       amountDue = firstValue * secondValue;
+              //       change = thirdValue - (firstValue * secondValue);
+              //     },
+              //   ),
+              // ),
             ]),
           ),
         ],
@@ -274,17 +296,26 @@ class _CalculatorState extends State<Calculator> {
     );
   }
 
-  void calculate() {
-    if (fareController.text.trim().isNotEmpty &&
-        passengerController.text.trim().isNotEmpty &&
-        amountController.text.trim().isNotEmpty) {
-      final firstValue = double.parse(fareController.text);
-      final secondValue = double.parse(passengerController.text);
-      // final thirdValue = double.parse(amountController.text);
+  // void calculate() {
+  //   // if (fareController.text.trim().isNotEmpty &&
+  //   //     passengerController.text.trim().isNotEmpty &&
+  //   //     amountController.text.trim().isNotEmpty) {
+  //   final firstValue = double.parse(fareController.text);
+  //   final secondValue = double.parse(passengerController.text);
+  //   final thirdValue = double.parse(amountController.text);
 
-      amountDue = (firstValue * secondValue).toString();
+  //   amountDue = (firstValue * secondValue).toString();
 
-      // _change = amountDue - thirdValue.toString();
-    }
-  }
+  //   // _change = amountDue - thirdValue.toString();
+  // }
 }
+// if (fareController.text.trim().isNotEmpty &&
+//         passengerController.text.trim().isNotEmpty &&
+//         amountController.text.trim().isNotEmpty) {
+//       final firstValue = double.parse(fareController.text);
+//       final secondValue = double.parse(passengerController.text);
+//       // final thirdValue = double.parse(amountController.text);
+
+//       amountDue = (firstValue * secondValue).toString();
+
+//       // _change = amountDue - thirdValue.toString();

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:taxicab_sa/Common/Drawer.dart';
 
 class Contact extends StatefulWidget {
@@ -57,7 +58,9 @@ class _ContactState extends State<Contact> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(48, 18, 48, 8),
                 child: ListTile(
-                  onTap: () {},
+                  onTap: () async {
+                    await launch("https://www.facebook.com/taxicabsa");
+                  },
                   tileColor: Color.fromRGBO(59, 89, 152, 1),
                   leading: Image.asset(
                     'images/facebook.png',
@@ -72,7 +75,9 @@ class _ContactState extends State<Contact> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(48, 8, 48, 8),
                 child: ListTile(
-                  onTap: () {},
+                  onTap: () async {
+                    await launch("https://twitter.com/taxicabsa");
+                  },
                   tileColor: Color.fromRGBO(29, 175, 255, 1),
                   leading: Image.asset(
                     'images/twitter.png',
@@ -87,7 +92,9 @@ class _ContactState extends State<Contact> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(48, 8, 48, 8),
                 child: ListTile(
-                  onTap: () {},
+                  onTap: () async {
+                    await launch("mailto:taxicabza@gmail.com");
+                  },
                   tileColor: Colors.indigo[800],
                   leading: Icon(
                     Icons.mail,
