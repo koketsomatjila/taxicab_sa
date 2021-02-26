@@ -43,7 +43,7 @@ class Welcome extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 460,
+              height: 556,
               width: double.infinity,
               child: SingleChildScrollView(
                 child: Container(

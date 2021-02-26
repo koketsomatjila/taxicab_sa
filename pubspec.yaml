@@ -1,5 +1,5 @@
 name: taxicab_sa
-description: A new Flutter project.
+description: Easy-to-use app to help you get around using minibus taxis.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -25,8 +25,13 @@ dependencies:
     sdk: flutter
   cloud_firestore: ^0.16.0+1
   cupertino_icons: ^1.0.0
+  firebase_core: ^0.7.0
+  firebase_database: ^6.0.0
   google_fonts: ^1.1.2
+  provider: ^4.3.3
+  transparent_image: ^1.0.0
   url_launcher: ^5.7.10
+  uuid: ^2.2.2
 
 dev_dependencies:
   flutter_test:

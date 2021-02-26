@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:taxicab_sa/Common/Drawer.dart';
+import 'package:taxicab_sa/Common/taxi_rank_tile.dart';
+import 'package:taxicab_sa/Provider/taxi_rank_provider.dart';
 
 class Gauteng extends StatefulWidget {
   Gauteng({Key key}) : super(key: key);
@@ -12,6 +15,8 @@ class Gauteng extends StatefulWidget {
 class _GautengState extends State<Gauteng> {
   @override
   Widget build(BuildContext context) {
+    final rankProvider = Provider.of<TaxiRankProvider>(context);
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -33,6 +38,19 @@ class _GautengState extends State<Gauteng> {
               // width: double.infinity,
               // color: Colors.yellow[700].withOpacity(0.5),
               colorBlendMode: BlendMode.srcOver),
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Column(
+                  children: rankProvider.taxiRanksGP
+                      .map((item) => GestureDetector(
+                            child: TaxiRankTile(
+                              rank: item,
+                            ),
+                          ))
+                      .toList()),
+            ),
+          ),
         ]));
   }
 }

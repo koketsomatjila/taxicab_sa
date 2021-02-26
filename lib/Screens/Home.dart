@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:taxicab_sa/Common/Drawer.dart';
 import 'package:taxicab_sa/Common/screen_navigation.dart';
 import 'package:taxicab_sa/Screens/Gauteng.dart';
-import 'package:taxicab_sa/Screens/News.dart';
+import 'package:taxicab_sa/Screens/NewsList.dart';
 import 'package:taxicab_sa/Screens/NorthWest.dart';
 import 'package:taxicab_sa/Screens/Traffic.dart';
 import 'package:taxicab_sa/Screens/Welcome.dart';
@@ -41,11 +41,11 @@ class _HomeState extends State<Home> {
               fit: BoxFit.cover,
               height: double.infinity,
               // width: double.infinity,
-              color: Colors.yellow[700].withOpacity(0.5),
+              color: Colors.yellow[700].withOpacity(0.4),
               colorBlendMode: BlendMode.srcOver),
           Container(
             child: Padding(
-              padding: const EdgeInsets.only(top: 58.0),
+              padding: const EdgeInsets.only(top: 100.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
