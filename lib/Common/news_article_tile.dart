@@ -35,26 +35,29 @@ class ArticleTile extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 _articleImage(article.picture),
-                Container(
-                  width: 275,
-                  child: RichText(
-                    text: TextSpan(children: [
-                      TextSpan(
-                        text: '${article.title} \n\n',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22,
-                        ),
-                      ),
-                      TextSpan(
-                        text: '${article.date} ',
-                        style: TextStyle(
-                            fontStyle: FontStyle.italic,
-                            fontSize: 14,
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    width: 275,
+                    child: RichText(
+                      text: TextSpan(children: [
+                        TextSpan(
+                          text: '${article.title} \n\n',
+                          style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Colors.grey[600]),
-                      ),
-                    ], style: TextStyle(color: Colors.black)),
+                            fontSize: 22,
+                          ),
+                        ),
+                        TextSpan(
+                          text: '${article.date} ',
+                          style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[600]),
+                        ),
+                      ], style: TextStyle(color: Colors.black)),
+                    ),
                   ),
                 )
               ],

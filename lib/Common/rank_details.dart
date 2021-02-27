@@ -33,26 +33,23 @@ class _RankDetailsState extends State<RankDetails> {
             fit: BoxFit.cover,
             height: double.infinity,
             // width: double.infinity,
-            color: Colors.yellow[700].withOpacity(0.5),
+            color: Colors.yellow[100].withOpacity(0.8),
             colorBlendMode: BlendMode.srcOver),
         Column(
           children: [
             Container(
-              color: Colors.white.withOpacity(0.8),
-            ),
-            Container(
               child: FadeInImage.memoryNetwork(
                 placeholder: kTransparentImage,
                 image: widget.rank.picture,
-                fit: BoxFit.fitHeight,
+                height: 200,
+                width: double.maxFinite,
+                fit: BoxFit.fill,
               ),
             ),
-            SizedBox(
-              height: 383.5,
-              width: double.infinity,
-              child: SingleChildScrollView(
-                child: Container(
-                  color: Colors.white.withOpacity(0.8),
+            Flexible(
+              child: SizedBox(
+                width: double.maxFinite,
+                child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: RichText(
@@ -64,22 +61,14 @@ class _RankDetailsState extends State<RankDetails> {
                           color: Colors.black,
                         ),
                         children: [
-                          //           Padding(
-                          //   padding: const EdgeInsets.fromLTRB(8, 18, 8, 18.0),
-                          //   child: Text(
-                          //     widget.rank.name.toString(),
-                          //     style: TextStyle(
-                          //       fontSize: 25,
-                          //     ),
-                          //   ),
-                          // ),
                           TextSpan(
-                              style: GoogleFonts.ubuntu(
-                                  fontWeight: FontWeight.bold),
+                              style: GoogleFonts.aclonica(
+                                  fontWeight: FontWeight.bold, fontSize: 30),
                               text: '${widget.rank.name}\n\n'),
                           TextSpan(
-                              style: GoogleFonts.ubuntu(),
-                              text: widget.rank.destinations),
+                              style: GoogleFonts.aclonica(fontSize: 18),
+                              text: widget.rank.destinations
+                                  .replaceAll('/n', '\n')),
                         ],
                       ),
                     ),

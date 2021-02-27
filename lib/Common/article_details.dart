@@ -35,54 +35,50 @@ class _ArticleDetailsState extends State<ArticleDetails> {
             // width: double.infinity,
             color: Colors.yellow[700].withOpacity(0.5),
             colorBlendMode: BlendMode.srcOver),
-        Column(
-          children: [
-            Container(
-                color: Colors.white.withOpacity(0.8),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 18, 8, 18.0),
-                  child: Text(
-                    widget.article.title.toString(),
-                    style: TextStyle(
-                      fontSize: 25,
-                    ),
-                  ),
-                )),
-            Container(
-              child: FadeInImage.memoryNetwork(
-                placeholder: kTransparentImage,
-                image: widget.article.picture,
-                fit: BoxFit.fitHeight,
-              ),
-            ),
-            SizedBox(
-              height: 383.5,
-              width: double.infinity,
-              child: SingleChildScrollView(
-                child: Container(
+        SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
                   color: Colors.white.withOpacity(0.8),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: RichText(
-                      text: TextSpan(
-                        style: GoogleFonts.ubuntu(
-                          fontWeight: FontWeight.w400,
-                          height: 1.5,
-                          fontSize: 17,
-                          color: Colors.black,
-                        ),
-                        children: [
-                          TextSpan(
-                              style: GoogleFonts.ubuntu(),
-                              text: widget.article.article)
-                        ],
+                    padding: const EdgeInsets.fromLTRB(8, 18, 8, 18.0),
+                    child: Text(
+                      widget.article.title.toString(),
+                      style: TextStyle(
+                        fontSize: 25,
                       ),
+                    ),
+                  )),
+              Container(
+                child: FadeInImage.memoryNetwork(
+                  placeholder: kTransparentImage,
+                  image: widget.article.picture,
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+              Container(
+                color: Colors.white.withOpacity(0.8),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RichText(
+                    text: TextSpan(
+                      style: GoogleFonts.ubuntu(
+                        fontWeight: FontWeight.w400,
+                        height: 1.5,
+                        fontSize: 18,
+                        color: Colors.black,
+                      ),
+                      children: [
+                        TextSpan(
+                            style: GoogleFonts.ubuntu(),
+                            text: widget.article.article)
+                      ],
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ]),
     );

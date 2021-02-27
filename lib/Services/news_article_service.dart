@@ -6,8 +6,11 @@ class ArticlesServices {
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
   String collection = "News";
 
-  Future<List<NewsArticleModel>> getArticles() async =>
-      _firestore.collection(collection).get().then((result) {
+  Future<List<NewsArticleModel>> getArticles() async => _firestore
+          .collection(collection)
+          .orderBy('Date', descending: true)
+          .get()
+          .then((result) {
         List<NewsArticleModel> articles = [];
         for (DocumentSnapshot article in result.docs) {
           articles.add(NewsArticleModel.fromSnapshot(article));

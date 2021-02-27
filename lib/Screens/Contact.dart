@@ -39,7 +39,7 @@ class _ContactState extends State<Contact> {
             alignment: Alignment.center,
             child: Column(children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(4, 104, 4, 24),
+                padding: const EdgeInsets.fromLTRB(4, 80, 4, 24),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),

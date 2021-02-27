@@ -7,6 +7,7 @@ class TaxiRankProvider with ChangeNotifier {
   List<TaxiRankModel> taxiRanks = [];
   List<TaxiRankModel> taxiRanksGP = [];
   List<TaxiRankModel> taxiRanksWC = [];
+  List<TaxiRankModel> taxiRanksNW = [];
   TaxiRankServices _rankServices = TaxiRankServices();
 
   TaxiRankProvider.initialize() {
@@ -17,12 +18,16 @@ class TaxiRankProvider with ChangeNotifier {
     taxiRanks = await _rankServices.getRanks();
     taxiRanksGP = await _rankServices.getRankGauteng();
     taxiRanksWC = await _rankServices.getRankWC();
+    taxiRanksNW = await _rankServices.getRankNW();
+
     notifyListeners();
   }
 
   Future loadRanksByProvince({String provinceName}) async {
     taxiRanksGP = await _rankServices.getRankGauteng(province: 'Gauteng');
     taxiRanksWC = await _rankServices.getRankWC(province: 'Western Cape');
+    taxiRanksNW = await _rankServices.getRankNW(province: 'North West');
+
     notifyListeners();
   }
 
