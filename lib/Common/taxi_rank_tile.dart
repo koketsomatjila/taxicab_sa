@@ -37,6 +37,9 @@ class TaxiRankTile extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 _articleImage(rank.picture),
+                SizedBox(
+                  width: 20,
+                ),
                 Flexible(
                   flex: 1,
                   child: Container(
@@ -44,7 +47,7 @@ class TaxiRankTile extends StatelessWidget {
                     child: RichText(
                       text: TextSpan(children: [
                         TextSpan(
-                          text: '\t\t${rank.name} ',
+                          text: '${rank.name} ',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 22,

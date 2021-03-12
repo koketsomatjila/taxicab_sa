@@ -40,10 +40,10 @@ class _RankDetailsState extends State<RankDetails> {
             Container(
               child: FadeInImage.memoryNetwork(
                 placeholder: kTransparentImage,
-                image: widget.rank.picture,
-                height: 200,
+                image: widget.rank.picture2,
+                height: 230,
                 width: double.maxFinite,
-                fit: BoxFit.fill,
+                fit: BoxFit.fitWidth,
               ),
             ),
             Flexible(
@@ -65,10 +65,14 @@ class _RankDetailsState extends State<RankDetails> {
                               style: GoogleFonts.aclonica(
                                   fontWeight: FontWeight.bold, fontSize: 30),
                               text: '${widget.rank.name}\n\n'),
+
+                          // TextSpan(
+                          //     style: GoogleFonts.aclonica(fontSize: 30),
+                          //     text: '${widget.rank.location}\n\n'.toString()),
                           TextSpan(
                               style: GoogleFonts.aclonica(fontSize: 18),
                               text: widget.rank.destinations
-                                  .replaceAll('/n', '\n')),
+                                  .replaceAll('/n', '\n'))
                         ],
                       ),
                     ),

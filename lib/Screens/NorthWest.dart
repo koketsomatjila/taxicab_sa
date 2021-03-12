@@ -37,7 +37,7 @@ class _NorthWestState extends State<NorthWest> {
               height: double.infinity,
               // width: double.infinity,
               color: Colors.black.withOpacity(0.5),
-              colorBlendMode: BlendMode.multiply),
+              colorBlendMode: BlendMode.darken),
           SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(top: 8.0),

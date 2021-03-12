@@ -27,7 +27,9 @@ dependencies:
   cupertino_icons: ^1.0.0
   firebase_core: ^0.7.0
   firebase_database: ^6.0.0
+  firestore_search: ^0.0.9
   google_fonts: ^1.1.2
+  material_floating_search_bar: ^0.2.6
   provider: ^4.3.3
   transparent_image: ^1.0.0
   url_launcher: ^5.7.10

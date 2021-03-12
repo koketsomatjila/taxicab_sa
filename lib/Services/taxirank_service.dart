@@ -19,6 +19,7 @@ class TaxiRankServices {
       _firestore
           .collection(collection)
           .where("Province", isEqualTo: 'Gauteng')
+          // .orderBy('Location', descending: false)
           .get()
           .then((result) {
         List<TaxiRankModel> taxiRanks = [];
@@ -41,6 +42,20 @@ class TaxiRankServices {
   Future<List<TaxiRankModel>> getRankNW({String province}) async => _firestore
           .collection(collection)
           .where("Province", isEqualTo: 'North West')
+          .get()
+          .then((result) {
+        List<TaxiRankModel> taxiRanks = [];
+        for (DocumentSnapshot taxiRank in result.docs) {
+          taxiRanks.add(TaxiRankModel.fromSnapshot(taxiRank));
+        }
+        return taxiRanks;
+      });
+  Future<List<TaxiRankModel>> searchGP({String province}) async => _firestore
+          .collection(collection)
+          .where(
+            "Province",
+            isEqualTo: 'Gauteng',
+          )
           .get()
           .then((result) {
         List<TaxiRankModel> taxiRanks = [];

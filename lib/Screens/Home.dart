@@ -8,6 +8,7 @@ import 'package:taxicab_sa/Screens/NorthWest.dart';
 import 'package:taxicab_sa/Screens/Traffic.dart';
 import 'package:taxicab_sa/Screens/Welcome.dart';
 import 'package:taxicab_sa/Screens/WesternCape.dart';
+import 'package:taxicab_sa/Screens/search.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -114,7 +115,7 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.only(top: 18, bottom: 18),
                       child: InkWell(
                         onTap: () {
-                          changeScreen(context, Traffic());
+                          changeScreen(context, SearchFeed());
                         },
                         child: ListTile(
                           title: Icon(
