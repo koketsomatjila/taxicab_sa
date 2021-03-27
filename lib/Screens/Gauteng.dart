@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:taxicab_sa/Common/Drawer.dart';
+import 'package:taxicab_sa/Common/rank_details.dart';
+import 'package:taxicab_sa/Common/screen_navigation.dart';
 import 'package:taxicab_sa/Common/taxi_rank_tile.dart';
 import 'package:taxicab_sa/Provider/taxi_rank_provider.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:taxicab_sa/models/taxi_rank_model.dart';
 
 class Gauteng extends StatefulWidget {
-  Gauteng({Key key}) : super(key: key);
+  Gauteng({Key key, this.rank}) : super(key: key);
+  final TaxiRankModel rank;
 
   @override
   _GautengState createState() => _GautengState();
@@ -45,102 +47,34 @@ class _GautengState extends State<Gauteng> {
         ),
       ),
       drawer: AppDrawer(),
-      body: FloatingSearchBarScrollNotifier(
-        child: Stack(
-          children: [
-            Image.asset('images/jhb.jpg',
-                fit: BoxFit.cover,
-                height: double.infinity,
-                colorBlendMode: BlendMode.srcOver),
-            SingleChildScrollView(
-              // child: Padding(
-              //   padding: const EdgeInsets.only(top: 80.0),
-              child: Column(
-                children: rankProvider.taxiRanksGP
-                    .map((item) => GestureDetector(
-                          child: TaxiRankTile(
-                            rank: item,
-                          ),
-                        ))
-                    .toList(),
-              ),
+      body: Stack(
+        children: [
+          Image.asset('images/jhb.jpg',
+              fit: BoxFit.cover,
+              height: double.infinity,
+              colorBlendMode: BlendMode.srcOver),
+          SingleChildScrollView(
+            child: Column(
+              children: rankProvider.taxiRanksGP
+                  .map((item) => GestureDetector(
+                        child: TaxiRankTile(
+                          rank: item,
+                        ),
+                      ))
+                  .toList(),
             ),
-            // ),
-            // buildFloatingSearchBar(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
-
-  // buildFloatingSearchBar() {
-  //   final isPortrait =
-  //       MediaQuery.of(context).orientation == Orientation.portrait;
-  //   String searchKey;
-  //   Stream streamQuery;
-  //   FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-  //   return FloatingSearchBar(
-  //     automaticallyImplyDrawerHamburger: false,
-
-  //     hint: 'Search...',
-  //     scrollPadding: const EdgeInsets.only(top: 16, bottom: 56),
-  //     transitionDuration: const Duration(milliseconds: 400),
-  //     transitionCurve: Curves.easeInOut,
-  //     physics: const BouncingScrollPhysics(),
-  //     axisAlignment: isPortrait ? 0.0 : -1.0,
-  //     openAxisAlignment: 0.0,
-  //     maxWidth: isPortrait ? 600 : 500,
-  //     debounceDelay: const Duration(milliseconds: 500),
-
-  //     onQueryChanged: (query) {
-  //       setState(() {
-  //         searchKey = query;
-  //         streamQuery = _firestore
-  //             .collection('Taxi Ranks')
-  //             .where('Destinations', isGreaterThanOrEqualTo: searchKey)
-  //             .where('Destinations', isLessThan: searchKey + 'z')
-  //             .snapshots();
-  //       });
-
-  //       // Call your model, bloc, controller here.
-  //     },
-  //     // Specify a custom transition to be used for
-  //     // animating between opened and closed stated.
-  //     transition: CircularFloatingSearchBarTransition(),
-  //     actions: [
-  //       FloatingSearchBarAction(
-  //         showIfOpened: false,
-  //         child: CircularButton(
-  //           icon: const Icon(Icons.place),
-  //           onPressed: () {},
-  //         ),
-  //       ),
-  //       FloatingSearchBarAction.searchToClear(
-  //         showIfClosed: false,
-  //       ),
-  //     ],
-  //     builder: (context, transition) {
-  //       return ClipRRect(
-  //         borderRadius: BorderRadius.circular(8),
-  //         child: Material(
-  //           color: Colors.white,
-  //           elevation: 4.0,
-  //           child: Column(
-  //             mainAxisSize: MainAxisSize.min,
-  //             children: Colors.accents.map((color) {
-  //               return Container(height: 112, color: color);
-  //             }).toList(),
-  //           ),
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
-
 }
 
 class DataSearch extends SearchDelegate {
+  DataSearch({Key key, this.rank});
+  final TaxiRankModel rank;
+  RankDetails rankDetails = RankDetails();
+
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -168,49 +102,88 @@ class DataSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
+    TaxiRankProvider.initialize();
+
+    RankDetails rankDetails = RankDetails(
+      rank: rank,
+    );
     return StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('Taxi Ranks')
-          // .where("Province", isEqualTo: 'North West')
-          .where('Destinations', isGreaterThanOrEqualTo: query)
+          // .orderBy('Name', descending: false)
+          .where("Province", isEqualTo: 'Gauteng')
           .snapshots(),
-      // searchKey = value;
       builder: (context, snapshot) {
         if (!snapshot.hasData) return Center(child: new Text('Loading...'));
+        if (query.isEmpty)
+          return Center(child: new Text('Let\'s find you that taxi...'));
 
-        final results = snapshot.data.docs
-            .where((DocumentSnapshot a) => a.data().toString().contains(query));
+        final results = snapshot.data.docs.where((DocumentSnapshot snapshot) =>
+            snapshot.data().toString().contains(query));
 
         return ListView(
-            children: results
-                .map<Widget>(
-                  (a) => Text(
-                    a.data().toString(),
-                    style: TextStyle(color: Colors.black, fontSize: 30),
-                  ),
-                )
-                .toList());
+          children: results
+              .map<Widget>(
+                (snapshot) => Padding(
+                  padding: EdgeInsets.fromLTRB(4, 14, 4, 4),
+                  child: Container(
+                      alignment: Alignment.centerLeft,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200].withOpacity(0.85),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Text(snapshot.get('Name').toString()),
+                      )),
+                ),
+              )
+              .toList(),
+        );
       },
     );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
+    // final rankProvider = Provider.of<TaxiRankProvider>(context);
+
     return StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('Taxi Ranks')
-          .where("Destinations", isGreaterThanOrEqualTo: query)
+          .where("Province", isEqualTo: 'Gauteng')
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return Center(child: new Text('Loading...'));
+        if (query.isEmpty)
+          return Center(child: new Text('Let\'s find you that taxi...'));
 
         final results = snapshot.data.docs
             .where((DocumentSnapshot a) => a.data().toString().contains(query));
 
         return ListView(
-            children: results
-                .map<Widget>((a) => Text(a.data().where().toString()))
-                .toList());
+          children: results
+              .map<Widget>((a) => GestureDetector(
+                    onTap: () {
+                      changeScreen(context, RankDetails());
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(4, 14, 4, 4),
+                      child: Container(
+                          alignment: Alignment.centerLeft,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300].withOpacity(0.85),
+                            // borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Text(a.get('Name').toString()),
+                          )),
+                    ),
+                  ))
+              .toList(),
+        );
       },
     );
   }

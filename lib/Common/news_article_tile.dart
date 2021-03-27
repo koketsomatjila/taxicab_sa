@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 import 'package:taxicab_sa/Common/article_details.dart';
 import 'package:taxicab_sa/Common/screen_navigation.dart';
-import 'package:taxicab_sa/Provider/news_article_provider.dart';
+// import 'package:taxicab_sa/Provider/news_article_provider.dart';
 import 'package:taxicab_sa/models/news_article_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 

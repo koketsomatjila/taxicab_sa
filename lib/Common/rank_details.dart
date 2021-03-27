@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxicab_sa/models/taxi_rank_model.dart';
@@ -65,10 +66,10 @@ class _RankDetailsState extends State<RankDetails> {
                               style: GoogleFonts.aclonica(
                                   fontWeight: FontWeight.bold, fontSize: 30),
                               text: '${widget.rank.name}\n\n'),
-
-                          // TextSpan(
-                          //     style: GoogleFonts.aclonica(fontSize: 30),
-                          //     text: '${widget.rank.location}\n\n'.toString()),
+                          TextSpan(
+                              style: GoogleFonts.aclonica(fontSize: 30),
+                              text: '${widget.rank.location.latitude}\n\n'
+                                  .toString()),
                           TextSpan(
                               style: GoogleFonts.aclonica(fontSize: 18),
                               text: widget.rank.destinations

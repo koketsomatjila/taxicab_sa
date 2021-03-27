@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:taxicab_sa/Common/article_details.dart';
+// import 'package:taxicab_sa/Common/article_details.dart';
 import 'package:taxicab_sa/Common/news_article_tile.dart';
 import 'package:taxicab_sa/Provider/news_article_provider.dart';
 // import 'package:taxicab_sa/Common/Drawer.dart';

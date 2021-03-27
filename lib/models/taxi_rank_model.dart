@@ -13,21 +13,21 @@ class TaxiRankModel {
   String _picture;
   String _picture2;
   String _destinations;
-  // GeoPoint _location;
+  GeoPoint _location;
 
   String get name => _name;
   String get province => _province;
   String get picture => _picture;
   String get picture2 => _picture2;
   String get destinations => _destinations;
-  // GeoPoint get location => _location;
+  GeoPoint get location => _location;
 
   TaxiRankModel.fromSnapshot(DocumentSnapshot snapshot) {
     Map data = snapshot.data();
     _name = data[NAME];
     _province = data[PROVINCE];
     _destinations = data[DESTINATIONS];
-    // _location = data[LOCATION];
+    _location = data[LOCATION];
     _picture = data[PICTURE];
     _picture2 = data[PICTURE2];
   }

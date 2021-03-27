@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:taxicab_sa/Common/article_details.dart';
 import 'package:taxicab_sa/Common/rank_details.dart';
 import 'package:taxicab_sa/Common/screen_navigation.dart';
-import 'package:taxicab_sa/Provider/news_article_provider.dart';
-import 'package:taxicab_sa/models/news_article_model.dart';
 import 'package:taxicab_sa/models/taxi_rank_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -15,18 +11,12 @@ class TaxiRankTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final articleProvider = Provider.of<NewsArticleProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.grey[300].withOpacity(0.85),
           borderRadius: BorderRadius.circular(10),
-
-          // boxShadow: [
-          //   BoxShadow(
-          //       color: Colors.black, offset: Offset(-2, -1), blurRadius: 5),
-          // ],
         ),
         child: InkWell(
           onTap: () {

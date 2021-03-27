@@ -27,12 +27,21 @@ class _TrafficState extends State<Traffic> {
         ),
         // drawer: AppDrawer(),
         body: Stack(children: [
-          Image.asset('images/taxi1.jpg',
-              fit: BoxFit.cover,
-              height: double.infinity,
-              // width: double.infinity,
-              color: Colors.yellow[700].withOpacity(0.5),
-              colorBlendMode: BlendMode.srcOver),
+          Image.asset(
+            'images/taxi1.jpg',
+            fit: BoxFit.cover,
+            height: double.infinity,
+            // width: double.infinity,
+            color: Colors.grey[400].withOpacity(0.85),
+            // colorBlendMode: BlendMode.srcOver
+          ),
+          Center(
+            child: Image.asset('images/under.png',
+                fit: BoxFit.fill,
+                // height: double.infinity,
+                color: Colors.black.withOpacity(0.2),
+                colorBlendMode: BlendMode.srcOver),
+          )
         ]));
   }
 }
