@@ -133,9 +133,8 @@ class DataSearch extends SearchDelegate {
                         color: Colors.grey[200].withOpacity(0.85),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text(snapshot.get('Name').toString()),
-                      )),
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(snapshot.get('Name').toString()))),
                 ),
               )
               .toList(),
