@@ -1,9 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taxicab_sa/Common/screen_navigation.dart';
+import 'package:taxicab_sa/Screens/Comments.dart';
 import 'package:taxicab_sa/models/taxi_rank_model.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:geocoding/geocoding.dart';
 
 class RankDetails extends StatefulWidget {
   final TaxiRankModel rank;
@@ -22,12 +25,19 @@ class _RankDetailsState extends State<RankDetails> {
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.orange),
         backgroundColor: Colors.white.withOpacity(0.8),
-        title: Flexible(
-          child: (Text(
-            'Taxi Cab SA',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
-          )),
+        actions: [
+          IconButton(
+            iconSize: 25,
+            icon: Icon(Icons.question_answer),
+            onPressed: () {
+              changeScreen(context, Comments());
+            },
+          )
+        ],
+        title: Text(
+          'Taxi Cab SA',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
         ),
       ),
       body: Stack(children: [
@@ -69,9 +79,11 @@ class _RankDetailsState extends State<RankDetails> {
                                   fontWeight: FontWeight.bold, fontSize: 30),
                               text: '${widget.rank.name}\n\n'),
                           TextSpan(
-                              style: GoogleFonts.aclonica(fontSize: 30),
-                              text: '${widget.rank.location.latitude}\n\n'
-                                  .toString()),
+                              style: GoogleFonts.aclonica(
+                                  fontSize: 20, color: Colors.amber[900]),
+                              text:
+                                  'Location Co-ordinates: ${widget.rank.location.latitude} ${widget.rank.location.longitude}\n\n'
+                                      .toString()),
                           TextSpan(
                               style: GoogleFonts.aclonica(fontSize: 18),
                               text: widget.rank.destinations

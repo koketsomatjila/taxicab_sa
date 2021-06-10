@@ -5,6 +5,7 @@ import 'package:taxicab_sa/Screens/Contact.dart';
 import 'package:taxicab_sa/Screens/Gauteng.dart';
 import 'package:taxicab_sa/Screens/Home.dart';
 import 'package:taxicab_sa/Screens/NorthWest.dart';
+import 'package:taxicab_sa/Screens/Traffic.dart';
 import 'package:taxicab_sa/Screens/WesternCape.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -124,7 +125,9 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () {},
+                    onTap: () {
+                      changeScreen(context, Traffic());
+                    },
                     child: ListTile(
                       title: Text(
                         'Kwa-Zulu Natal',
@@ -138,7 +141,9 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () {},
+                    onTap: () {
+                      changeScreen(context, Traffic());
+                    },
                     child: ListTile(
                       title: Text(
                         'Mpumalanga',
@@ -152,7 +157,9 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () {},
+                    onTap: () {
+                      changeScreen(context, Traffic());
+                    },
                     child: ListTile(
                       title: Text(
                         'Limpopo',
@@ -166,7 +173,9 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () {},
+                    onTap: () {
+                      changeScreen(context, Traffic());
+                    },
                     child: ListTile(
                       title: Text(
                         'Freestate',
@@ -180,7 +189,9 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () {},
+                    onTap: () {
+                      changeScreen(context, Traffic());
+                    },
                     child: ListTile(
                       title: Text(
                         'Northern Cape',
@@ -194,7 +205,9 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () {},
+                    onTap: () {
+                      changeScreen(context, Traffic());
+                    },
                     child: ListTile(
                       title: Text(
                         'Eastern Cape',

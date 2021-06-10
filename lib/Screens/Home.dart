@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxicab_sa/Common/Drawer.dart';
 import 'package:taxicab_sa/Common/screen_navigation.dart';
+import 'package:taxicab_sa/Screens/Calculator.dart';
 import 'package:taxicab_sa/Screens/Gauteng.dart';
 import 'package:taxicab_sa/Screens/NewsList.dart';
 import 'package:taxicab_sa/Screens/NorthWest.dart';
-import 'package:taxicab_sa/Screens/Traffic.dart';
+// import 'package:taxicab_sa/Screens/Traffic.dart';
 import 'package:taxicab_sa/Screens/Welcome.dart';
 import 'package:taxicab_sa/Screens/WesternCape.dart';
 
@@ -20,17 +21,14 @@ class _HomeState extends State<Home> {
     return Scaffold(
         backgroundColor: Colors.orange,
         appBar: AppBar(
-          centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.orange),
-          backgroundColor: Colors.white.withOpacity(0.8),
-          title: Flexible(
-            child: (Text(
+            centerTitle: true,
+            iconTheme: IconThemeData(color: Colors.orange),
+            backgroundColor: Colors.white.withOpacity(0.8),
+            title: Text(
               'Taxi Cab SA',
               textAlign: TextAlign.center,
               style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
             )),
-          ),
-        ),
         extendBodyBehindAppBar: true,
         // menu drawer
         drawer: AppDrawer(),
@@ -114,18 +112,18 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.only(top: 18, bottom: 18),
                       child: InkWell(
                         onTap: () {
-                          changeScreen(context, Traffic());
+                          changeScreen(context, Calculator());
                         },
                         child: ListTile(
                           title: Icon(
-                            Icons.traffic,
+                            Icons.calculate_rounded,
                             color: Colors.white,
                             size: 40,
                           ),
                           subtitle: Padding(
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Text(
-                              "Traffic News Feed",
+                              "Taxi Fare Calculator",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,

@@ -8,6 +8,7 @@ class TaxiRankProvider with ChangeNotifier {
   List<TaxiRankModel> taxiRanksGP = [];
   List<TaxiRankModel> taxiRanksWC = [];
   List<TaxiRankModel> taxiRanksNW = [];
+  List<TaxiRankModel> ranksSearched = [];
   TaxiRankServices _rankServices = TaxiRankServices();
 
   TaxiRankProvider.initialize() {
@@ -31,9 +32,8 @@ class TaxiRankProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  // Future search({String productName}) async {
-  //   productsSearched =
-  //       await _productsServices.searchProducts(productName: productName);
-  //   notifyListeners();
-  // }
+  Future search({String rankName}) async {
+    ranksSearched = await _rankServices.searchGP();
+    notifyListeners();
+  }
 }
