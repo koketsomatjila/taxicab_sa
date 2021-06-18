@@ -11,10 +11,10 @@ class TaxiRankTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Padding( 
       padding: const EdgeInsets.all(4.0),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: BoxDecoration( 
           color: Colors.grey[300].withOpacity(0.85),
           borderRadius: BorderRadius.circular(10),
         ),

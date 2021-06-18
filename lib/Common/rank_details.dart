@@ -78,12 +78,12 @@ class _RankDetailsState extends State<RankDetails> {
                               style: GoogleFonts.aclonica(
                                   fontWeight: FontWeight.bold, fontSize: 30),
                               text: '${widget.rank.name}\n\n'),
-                          TextSpan(
-                              style: GoogleFonts.aclonica(
-                                  fontSize: 20, color: Colors.amber[900]),
-                              text:
-                                  'Location Co-ordinates: ${widget.rank.location.latitude} ${widget.rank.location.longitude}\n\n'
-                                      .toString()),
+                          // TextSpan(
+                          //     style: GoogleFonts.aclonica(
+                          //         fontSize: 20, color: Colors.amber[900]),
+                          //     text:
+                          //         'Location Co-ordinates: ${widget.rank.location.latitude} ${widget.rank.location.longitude}\n\n'
+                          //             .toString()),
                           TextSpan(
                               style: GoogleFonts.aclonica(fontSize: 18),
                               text: widget.rank.destinations

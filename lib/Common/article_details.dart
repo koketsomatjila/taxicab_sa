@@ -20,12 +20,10 @@ class _ArticleDetailsState extends State<ArticleDetails> {
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.orange),
         backgroundColor: Colors.white.withOpacity(0.8),
-        title: Flexible(
-          child: (Text(
-            'Taxi Cab SA',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
-          )),
+        title: Text(
+          'Taxi Cab SA',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
         ),
       ),
       body: Stack(children: [

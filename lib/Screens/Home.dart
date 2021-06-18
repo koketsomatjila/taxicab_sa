@@ -6,6 +6,7 @@ import 'package:taxicab_sa/Screens/Calculator.dart';
 import 'package:taxicab_sa/Screens/Gauteng.dart';
 import 'package:taxicab_sa/Screens/NewsList.dart';
 import 'package:taxicab_sa/Screens/NorthWest.dart';
+import 'package:taxicab_sa/Screens/RankMap.dart';
 // import 'package:taxicab_sa/Screens/Traffic.dart';
 import 'package:taxicab_sa/Screens/Welcome.dart';
 import 'package:taxicab_sa/Screens/WesternCape.dart';
@@ -82,18 +83,18 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.only(top: 18, bottom: 18),
                       child: InkWell(
                         onTap: () {
-                          changeScreen(context, News());
+                          changeScreen(context, RankMap());
                         },
                         child: ListTile(
                           title: Icon(
-                            Icons.article,
+                            Icons.map,
                             color: Colors.white,
                             size: 40,
                           ),
                           subtitle: Padding(
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Text(
-                              "Word On The Street",
+                              "Nearest Rank Locator",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
@@ -124,6 +125,36 @@ class _HomeState extends State<Home> {
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Text(
                               "Taxi Fare Calculator",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: Colors.white,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 18, bottom: 18),
+                      child: InkWell(
+                        onTap: () {
+                          changeScreen(context, News());
+                        },
+                        child: ListTile(
+                          title: Icon(
+                            Icons.article,
+                            color: Colors.white,
+                            size: 40,
+                          ),
+                          subtitle: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Text(
+                              "Word On The Street",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,

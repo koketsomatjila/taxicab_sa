@@ -17,12 +17,11 @@ class _TrafficState extends State<Traffic> {
           centerTitle: true,
           iconTheme: IconThemeData(color: Colors.orange),
           backgroundColor: Colors.white.withOpacity(0.8),
-          title: Flexible(
-            child: (Text(
+          title: Text(
               'Taxi Cab SA',
               textAlign: TextAlign.center,
               style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
-            )),
+            
           ),
         ),
         // drawer: AppDrawer(),

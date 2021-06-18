@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:taxicab_sa/Common/Drawer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Contact extends StatefulWidget {
   Contact({Key key}) : super(key: key);
@@ -18,12 +18,11 @@ class _ContactState extends State<Contact> {
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.orange),
         backgroundColor: Colors.white.withOpacity(0.8),
-        title: Flexible(
-          child: (Text(
+        title: Text(
             'Taxi Cab SA',
             textAlign: TextAlign.center,
             style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
-          )),
+          
         ),
       ),
       drawer: AppDrawer(),

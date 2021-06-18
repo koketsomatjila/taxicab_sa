@@ -1,5 +1,5 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:taxicab_sa/Services/news_article_service.dart';
 import 'package:taxicab_sa/models/news_article_model.dart';
 

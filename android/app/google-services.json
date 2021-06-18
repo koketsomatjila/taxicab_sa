@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "826200011053",
+    "firebase_url": "https://taxi-cab-sa-default-rtdb.firebaseio.com",
     "project_id": "taxi-cab-sa",
     "storage_bucket": "taxi-cab-sa.appspot.com"
   },
@@ -14,13 +15,37 @@
       },
       "oauth_client": [
         {
+          "client_id": "826200011053-3ndfa61tauh2483kipb8fo30906eu4k0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tcsaapp.taxicab_sa",
+            "certificate_hash": "7645c099d7715ab3af0abc5dd5686897a06663eb"
+          }
+        },
+        {
+          "client_id": "826200011053-gs0rb6gvc6eovj6fahu5p93tuukd81dv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tcsaapp.taxicab_sa",
+            "certificate_hash": "8a11302a9bccae6fcadbd648519d3c9b7aaa7a85"
+          }
+        },
+        {
+          "client_id": "826200011053-lpqktnjujgncrv2n594ck9dilgaglmcu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tcsaapp.taxicab_sa",
+            "certificate_hash": "b681778d6e639790144be91e3fe5a3625b485aaa"
+          }
+        },
+        {
           "client_id": "826200011053-mlaidp0ivt12gm864gi1n0mg89mebh68.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDbmN_E9CfCKy18stNdm_0ftM9fzni6ofE"
+          "current_key": "AIzaSyA6Vgm5v6AUlsJKzIqIGFVdRSY0cpcIQEU"
         }
       ],
       "services": {
