@@ -10,6 +10,7 @@ import 'package:taxicab_sa/Screens/RankMap.dart';
 // import 'package:taxicab_sa/Screens/Traffic.dart';
 import 'package:taxicab_sa/Screens/Welcome.dart';
 import 'package:taxicab_sa/Screens/WesternCape.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,6 +18,26 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Future<void> _checkPermission() async {
+    final serviceStatus = await Permission.locationWhenInUse.serviceStatus;
+    final isGpsOn = serviceStatus == ServiceStatus.enabled;
+    if (!isGpsOn) {
+      print('Turn on location services before requesting permission.');
+      return;
+    }
+
+    final status = await Permission.locationWhenInUse.request();
+    if (status == PermissionStatus.granted) {
+      changeScreen(context, RankMap());
+    } else if (status == PermissionStatus.denied) {
+      print(
+          'Permission denied. Show a dialog and again ask for the permission');
+    } else if (status == PermissionStatus.permanentlyDenied) {
+      print('Take the user to the settings page.');
+      await openAppSettings();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +104,7 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.only(top: 18, bottom: 18),
                       child: InkWell(
                         onTap: () {
-                          changeScreen(context, RankMap());
+                          _checkPermission();
                         },
                         child: ListTile(
                           title: Icon(

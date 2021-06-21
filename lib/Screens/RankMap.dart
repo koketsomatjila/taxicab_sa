@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:taxicab_sa/Common/Drawer.dart';
@@ -47,7 +48,18 @@ class _RankMapState extends State<RankMap> {
 
   void initState() {
     getMarkerData();
+    _getUserLocation();
     super.initState();
+  }
+
+  LatLng currentPostion;
+  void _getUserLocation() async {
+    var position = await GeolocatorPlatform.instance
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+
+    setState(() {
+      currentPostion = LatLng(position.latitude, position.longitude);
+    });
   }
 
   @override
@@ -84,11 +96,10 @@ class _RankMapState extends State<RankMap> {
           GoogleMap(
             markers: Set<Marker>.of(markers.values),
             mapType: MapType.normal,
-            initialCameraPosition: CameraPosition(
-                target: LatLng(-26.32409940697854, 28.18073530954943),
-                zoom: 11,
-                tilt: 50),
+            initialCameraPosition:
+                CameraPosition(target: currentPostion, zoom: 16, tilt: 50),
             myLocationEnabled: true,
+            myLocationButtonEnabled: true,
             onMapCreated: (GoogleMapController controller) {
               myController = controller;
             },
