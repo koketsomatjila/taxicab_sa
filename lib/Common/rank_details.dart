@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxicab_sa/Common/screen_navigation.dart';
+// import 'package:taxicab_sa/Screens/Chat.dart';
 import 'package:taxicab_sa/Screens/Comments.dart';
+// import 'package:taxicab_sa/Screens/Comments.dart';
 import 'package:taxicab_sa/models/taxi_rank_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart';

@@ -2,10 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:taxicab_sa/Provider/comments_provider.dart';
 import 'package:taxicab_sa/Provider/news_article_provider.dart';
 import 'package:taxicab_sa/Provider/taxi_rank_provider.dart';
 import 'package:taxicab_sa/Screens/Home.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +16,9 @@ void main() async {
     ),
     ChangeNotifierProvider.value(
       value: TaxiRankProvider.initialize(),
+    ),
+    ChangeNotifierProvider.value(
+      value: CommentsProvider.initialize(),
     )
   ], child: MyApp()));
 }

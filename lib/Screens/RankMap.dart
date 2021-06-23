@@ -4,6 +4,10 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:taxicab_sa/Common/Drawer.dart';
+// import 'package:taxicab_sa/Common/rank_details.dart';
+// import 'package:taxicab_sa/Common/screen_navigation.dart';
+// import 'package:taxicab_sa/Common/taxi_rank_tile.dart';
+// import 'package:taxicab_sa/Provider/taxi_rank_provider.dart';
 
 class RankMap extends StatefulWidget {
   RankMap({Key key}) : super(key: key);
@@ -97,7 +101,7 @@ class _RankMapState extends State<RankMap> {
             markers: Set<Marker>.of(markers.values),
             mapType: MapType.normal,
             initialCameraPosition:
-                CameraPosition(target: currentPostion, zoom: 16, tilt: 50),
+                CameraPosition(target: currentPostion, zoom: 15, tilt: 50),
             myLocationEnabled: true,
             myLocationButtonEnabled: true,
             onMapCreated: (GoogleMapController controller) {
