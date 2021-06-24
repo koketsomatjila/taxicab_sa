@@ -8,7 +8,7 @@ class CommentsServices {
 
   Future<List<CommentsModel>> getComments() async => _firestore
           .collection(collection)
-          // .orderBy('Date', descending: true)
+          .orderBy('Date', descending: false)
           .get()
           .then((result) {
         List<CommentsModel> comments = [];

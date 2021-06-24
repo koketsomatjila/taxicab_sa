@@ -101,7 +101,7 @@ class _RankMapState extends State<RankMap> {
             markers: Set<Marker>.of(markers.values),
             mapType: MapType.normal,
             initialCameraPosition:
-                CameraPosition(target: currentPostion, zoom: 15, tilt: 50),
+                CameraPosition(target: currentPostion, zoom: 12, tilt: 50),
             myLocationEnabled: true,
             myLocationButtonEnabled: true,
             onMapCreated: (GoogleMapController controller) {

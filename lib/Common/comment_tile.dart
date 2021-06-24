@@ -13,15 +13,23 @@ class CommentsTile extends StatelessWidget {
       padding: const EdgeInsets.all(4.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.65),
-          borderRadius: BorderRadius.circular(40),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2),
+              spreadRadius: 1,
+              blurRadius: 2,
+              // offset: Offset(0, 3),
+            )
+          ],
+          // color: Colors.black.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: InkWell(
           onTap: () {
             // changeScreen(context, commentDetails(comment: comment));
           },
           child: Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
             child: Row(
               children: <Widget>[
                 Container(
@@ -37,9 +45,9 @@ class CommentsTile extends StatelessWidget {
                   // ),
                   child: CircleAvatar(
                     radius: 40,
-                    foregroundImage: NetworkImage(
-                      'https://firebasestorage.googleapis.com/v0/b/taxi-cab-sa.appspot.com/o/tcsalogo.jpg?alt=media&token=7939b099-d2f1-46c8-ae0d-f92a86a28f01',
-                    ),
+                    backgroundImage: NetworkImage(
+                        'https://firebasestorage.googleapis.com/v0/b/taxi-cab-sa.appspot.com/o/Taxi%20Cab%20SA%20icon-02.jpg?alt=media&token=853a0645-b106-4b1c-8153-3be6d97d7398',
+                        scale: 90),
                   ),
                 ),
                 SizedBox(
@@ -54,18 +62,28 @@ class CommentsTile extends StatelessWidget {
                       child: RichText(
                         text: TextSpan(children: [
                           TextSpan(
-                            text: '${comment.username} \n\n',
+                            text: '${comment.username} \n',
                             style: GoogleFonts.aclonica(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontSize: 25),
                           ),
                           TextSpan(
-                            text: '${comment.comment} ',
+                            text: '${comment.comment} \n',
+                            style: GoogleFonts.ubuntu(
+                                height: 1.3,
+                                // fontWeight: FontWeight.w100,
+                                color: Colors.black,
+                                fontSize: 20),
+                          ),
+                          TextSpan(
+                            text:
+                                '                                                                 ${comment.date.toDate().day}-${comment.date.toDate().month}-${comment.date.toDate().year} ',
                             style: GoogleFonts.aclonica(
+                                height: 1.3,
                                 fontWeight: FontWeight.w100,
-                                color: Colors.white,
-                                fontSize: 17),
+                                color: Colors.black54,
+                                fontSize: 10),
                           ),
                         ], style: TextStyle(color: Colors.black)),
                       ),

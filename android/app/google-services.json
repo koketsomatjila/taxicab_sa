@@ -31,11 +31,11 @@
           }
         },
         {
-          "client_id": "826200011053-lpqktnjujgncrv2n594ck9dilgaglmcu.apps.googleusercontent.com",
+          "client_id": "826200011053-rm905ohufrnqq0d2ghf7s34gvhrsc4a8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.tcsaapp.taxicab_sa",
-            "certificate_hash": "b681778d6e639790144be91e3fe5a3625b485aaa"
+            "certificate_hash": "eec87acd66bbf17dc0977af4400d2d220b83b5e1"
           }
         },
         {
@@ -45,7 +45,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA6Vgm5v6AUlsJKzIqIGFVdRSY0cpcIQEU"
+          "current_key": "AIzaSyDbmN_E9CfCKy18stNdm_0ftM9fzni6ofE"
         }
       ],
       "services": {

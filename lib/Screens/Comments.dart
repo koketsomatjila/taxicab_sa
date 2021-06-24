@@ -59,6 +59,7 @@ class _CommentsState extends State<Comments> {
                     if (formKey.currentState.validate()) {
                       // Do something like updating SharedPreferences or User Settings etc.
                       addComment();
+                      // print(CommentsTile());
                     }
                   },
                 ),
@@ -128,7 +129,7 @@ class _CommentsState extends State<Comments> {
 
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (BuildContext context) => this.widget));
-      formKey.currentContext;
+
       // }
     } else {
       Fluttertoast.showToast(msg: "Try Again Later");
