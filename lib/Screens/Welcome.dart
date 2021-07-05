@@ -13,10 +13,9 @@ class Welcome extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.orange),
         backgroundColor: Colors.white.withOpacity(0.8),
         title: Text(
-            'Taxi Cab SA',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
-          
+          'Taxi Cab SA',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
         ),
       ),
       body: Stack(children: [
@@ -74,7 +73,7 @@ class Welcome extends StatelessWidget {
                                     'Welcome and thank you for choosing Taxi Cab SA!\n\n'),
                             TextSpan(
                                 text:
-                                    "This app is quick and easy to use. Just click on the desired province and decide whether you want to search where you want to go, or navigate through our list of available destinations. We also have a handy taxi fare calculator to assist you in the front seat of the cab.\n\n"),
+                                    "This app is quick and easy to use. Just click on the desired province and decide whether you want to search where you want to go, or navigate through our list of available destinations. \n\nWe also have a handy taxi fare calculator to assist you in the front seat of the cab.\n\n"),
                             TextSpan(
                                 style: GoogleFonts.inknutAntiqua(
                                     fontWeight: FontWeight.bold),
@@ -82,7 +81,7 @@ class Welcome extends StatelessWidget {
                                     'Switch on your location settings for better results.\n\n'),
                             TextSpan(
                                 text:
-                                    'More content shall be added regularily so bare with us if you are having trouble finding your taxi. You can visit our Facebook and Twitter pages to engage with the Taxi Cab SA community for more assistance.\n\n'),
+                                    'More content shall be added regularily so bare with us if you are having trouble finding your taxi. \n\nYou can visit our Facebook and Twitter pages to engage with the Taxi Cab SA community for more assistance.\n\n'),
                             TextSpan(
                                 text:
                                     'In general, taxi fare prices are estimated similarily by distance...\n0 to 10km(local taxis) R5 - R12.50\n15 to 25km R11 - R20\n30 to 40km R18 - R33 etc..\nLong distance taxis(above 60km) also range but usually start at R50 and above.\n\n',
@@ -96,7 +95,7 @@ class Welcome extends StatelessWidget {
                                     "Even though we are the most reliable source of this information, we do advise that you confirm the taxi's destination with the driver of the taxi when boarding.\n\n"),
                             TextSpan(
                                 text:
-                                    "Engage with us on any of our social media accounts for any enquiries. \n\nThank you for using Taxi Cab SA. Safe travels.\n ")
+                                    "Engage with us on any of our social media accounts for any enquiries. \n\nThank you for using Taxi Cab SA. Safe travels.😃\n ")
                           ],
                         ),
                       ),

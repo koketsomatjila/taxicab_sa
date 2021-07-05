@@ -19,10 +19,9 @@ class _ContactState extends State<Contact> {
         iconTheme: IconThemeData(color: Colors.orange),
         backgroundColor: Colors.white.withOpacity(0.8),
         title: Text(
-            'Taxi Cab SA',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
-          
+          'Taxi Cab SA',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
         ),
       ),
       drawer: AppDrawer(),
@@ -56,53 +55,63 @@ class _ContactState extends State<Contact> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(48, 18, 48, 8),
-                child: ListTile(
-                  onTap: () async {
-                    await launch("https://www.facebook.com/taxicabsa");
-                  },
-                  tileColor: Color.fromRGBO(59, 89, 152, 1),
-                  leading: Image.asset(
-                    'images/facebook.png',
-                    scale: 12,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(59, 89, 152, 1),
                   ),
-                  title: Text(
-                    'Facebook',
-                    style: TextStyle(fontSize: 25, color: Colors.white),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(48, 8, 48, 8),
-                child: ListTile(
-                  onTap: () async {
-                    await launch("https://twitter.com/taxicabsa");
-                  },
-                  tileColor: Color.fromRGBO(29, 175, 255, 1),
-                  leading: Image.asset(
-                    'images/twitter.png',
-                    scale: 12,
-                  ),
-                  title: Text(
-                    'Twitter',
-                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  child: ListTile(
+                    onTap: () async {
+                      await launch("https://www.facebook.com/taxicabsa");
+                    },
+                    leading: Image.asset(
+                      'images/facebook.png',
+                      scale: 12,
+                    ),
+                    title: Text(
+                      'Facebook',
+                      style: TextStyle(fontSize: 25, color: Colors.white),
+                    ),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(48, 8, 48, 8),
-                child: ListTile(
-                  onTap: () async {
-                    await launch("mailto:taxicabza@gmail.com");
-                  },
-                  tileColor: Colors.indigo[800],
-                  leading: Icon(
-                    Icons.mail,
-                    color: Colors.white,
-                    size: 30,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(80, 171, 241, 1),
                   ),
-                  title: Text(
-                    'E-Mail',
-                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  child: ListTile(
+                    onTap: () async {
+                      await launch("https://twitter.com/taxicabsa");
+                    },
+                    leading: Image.asset(
+                      'images/twitter.png',
+                      scale: 12,
+                    ),
+                    title: Text(
+                      'Twitter',
+                      style: TextStyle(fontSize: 25, color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(48, 8, 48, 8),
+                child: Container(
+                  decoration: BoxDecoration(color: Colors.indigo[800]),
+                  child: ListTile(
+                    onTap: () async {
+                      await launch("mailto:taxicabza@gmail.com");
+                    },
+                    leading: Icon(
+                      Icons.mail,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    title: Text(
+                      'E-Mail',
+                      style: TextStyle(fontSize: 25, color: Colors.white),
+                    ),
                   ),
                 ),
               ),

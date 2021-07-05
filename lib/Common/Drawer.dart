@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:taxicab_sa/Common/screen_navigation.dart';
 import 'package:taxicab_sa/Screens/Calculator.dart';
 import 'package:taxicab_sa/Screens/Contact.dart';
@@ -21,7 +24,7 @@ class _AppDrawerState extends State<AppDrawer> {
     return Drawer(
         child: Stack(
       children: [
-        Image.asset('images/jozi.jpg',
+        Image.asset('images/taxis.jpg',
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
@@ -30,18 +33,30 @@ class _AppDrawerState extends State<AppDrawer> {
         Container(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(top: 58.0),
+              padding: const EdgeInsets.only(
+                top: 48.0,
+              ),
               child: Column(
                 children: [
-                  // Container(
-                  //     child: Padding(
-                  //   padding: const EdgeInsets.all(18.0),
-                  //   child: Image.asset(
-                  //     'images/tcsalogo.png',
-                  //     height: 80,
-                  //     alignment: Alignment.centerLeft,
-                  //   ),
-                  // )),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 18),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white),
+                        child: Padding(
+                          padding: const EdgeInsets.all(2),
+                          child: Image.asset(
+                            'images/tcsalogo.png',
+                            height: 70,
+                            alignment: Alignment.centerLeft,
+                          ),
+                        )),
+                  ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -58,6 +73,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -74,7 +93,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
-
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -91,6 +113,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -107,6 +133,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -123,6 +153,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -139,6 +173,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -155,6 +193,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -171,6 +213,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -187,6 +233,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -203,6 +253,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                     ),
                   ),
+                  Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -220,9 +274,12 @@ class _AppDrawerState extends State<AppDrawer> {
                     ),
                   ),
                   Divider(
+                      endIndent: 20,
+                      indent: 20,
+                      color: Colors.white.withOpacity(0.1)),
+                  Divider(
                     height: 27,
                   ),
-
                   InkWell(
                     onTap: () {},
                     child: ListTile(
@@ -242,6 +299,11 @@ class _AppDrawerState extends State<AppDrawer> {
                   Divider(
                     height: 17,
                   ),
+                  Text(
+                    '© TCSA APP, 2021',
+                    style:
+                        GoogleFonts.ubuntu(color: Colors.white30, fontSize: 10),
+                  )
                 ],
               ),
             ),

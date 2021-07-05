@@ -46,8 +46,8 @@ class CommentsTile extends StatelessWidget {
                   child: CircleAvatar(
                     radius: 40,
                     backgroundImage: NetworkImage(
-                        'https://firebasestorage.googleapis.com/v0/b/taxi-cab-sa.appspot.com/o/Taxi%20Cab%20SA%20icon-02.jpg?alt=media&token=853a0645-b106-4b1c-8153-3be6d97d7398',
-                        scale: 90),
+                        'https://firebasestorage.googleapis.com/v0/b/taxi-cab-sa.appspot.com/o/hand.jpg?alt=media&token=6c7f26c7-9ec7-4836-8d8b-a5ebf79b65be',
+                        scale: 5),
                   ),
                 ),
                 SizedBox(

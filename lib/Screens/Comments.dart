@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -17,9 +18,13 @@ class Comments extends StatefulWidget {
 }
 
 class _CommentsState extends State<Comments> {
+  var stream;
+
   final formKey = GlobalKey<FormState>();
   final TextEditingController _textEditingController = TextEditingController();
   final TextEditingController _textEditingController2 = TextEditingController();
+  // final TextEditingController _textEditingController3 = TextEditingController();
+
   GetCommentsServices getCommentsServices = GetCommentsServices();
   final snackBar = SnackBar(content: Text('Comment Added'));
 
@@ -42,11 +47,31 @@ class _CommentsState extends State<Comments> {
                         },
                         decoration: InputDecoration(hintText: "Enter Username"),
                       ),
+                      // TextFormField(
+                      //   // initialValue: '',
+                      //   controller: _textEditingController3,
+                      //   keyboardType: TextInputType.emailAddress,
+                      //   // ignore: missing_return
+                      //   validator: (value) {
+                      //     if (value.isEmpty) {
+                      //       Pattern pattern =
+                      //           r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                      //       RegExp regex = new RegExp(pattern);
+                      //       if (!regex.hasMatch(value)) return "Invalid Email";
+
+                      //       return null;
+                      //     }
+                      //   },
+
+                      //   decoration: InputDecoration(hintText: "Enter email"),
+                      // ),
                       TextFormField(
                         // initialValue: '',
                         controller: _textEditingController2,
                         validator: (value) {
-                          return value.isNotEmpty ? null : "Please type query";
+                          return value.isNotEmpty
+                              ? null
+                              : "Please type comment";
                         },
                         decoration: InputDecoration(hintText: "Comment"),
                       ),
@@ -57,9 +82,10 @@ class _CommentsState extends State<Comments> {
                   child: Text('Publish'),
                   onPressed: () {
                     if (formKey.currentState.validate()) {
-                      // Do something like updating SharedPreferences or User Settings etc.
                       addComment();
-                      // print(CommentsTile());
+                      setState(() {
+                        newStream(); //refresh/reset the stream
+                      });
                     }
                   },
                 ),
@@ -69,58 +95,9 @@ class _CommentsState extends State<Comments> {
         });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final commentProvider = Provider.of<CommentsProvider>(context);
-
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () async {
-            commentDialog(context);
-          },
-          label: const Text('Add Comment'),
-          icon: const Icon(Icons.comment),
-          backgroundColor: Colors.orange,
-        ),
-        appBar: AppBar(
-          centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.orange),
-          backgroundColor: Colors.white.withOpacity(0.8),
-          title: Text(
-            'Comments Section',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
-          ),
-        ),
-        // drawer: AppDrawer(),
-        body: Stack(children: [
-          Image.asset('images/taxi1.jpg',
-              fit: BoxFit.cover,
-              height: double.infinity,
-              // width: double.infinity,
-              color: Colors.yellow[50].withOpacity(0.85),
-              colorBlendMode: BlendMode.srcOver),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8, 8, 8, 64.8),
-            child: SingleChildScrollView(
-              child: Column(
-                children: commentProvider.comments
-                    .map((item) => GestureDetector(
-                          child: CommentsTile(
-                            comment: item,
-                          ),
-                        ))
-                    .toList(),
-              ),
-            ),
-          ),
-        ]));
-  }
-
-  Future<void> addComment() async {
+  // this method adds comments to firestore
+  Future addComment() async {
     if (formKey.currentState.validate()) {
-      // if (_textEditingController2 != null) {
       getCommentsServices.publishComment(
         username: _textEditingController.text,
         comment: _textEditingController2.text,
@@ -129,10 +106,94 @@ class _CommentsState extends State<Comments> {
 
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (BuildContext context) => this.widget));
-
-      // }
     } else {
       Fluttertoast.showToast(msg: "Try Again Later");
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    stream = newStream(); // initial stream
+  }
+
+  Stream<String> newStream() =>
+      Stream.periodic(Duration(seconds: 1), (i) => "$i");
+  @override
+  Widget build(BuildContext context) {
+    final commentProvider = Provider.of<CommentsProvider>(context);
+
+    var _firebaseFirestore =
+        FirebaseFirestore.instance.collection('Comments').snapshots();
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          commentDialog(context);
+        },
+        label: const Text('Add Comment'),
+        icon: const Icon(Icons.comment),
+        backgroundColor: Colors.orange,
+      ),
+      appBar: AppBar(
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.orange),
+        backgroundColor: Colors.white.withOpacity(0.8),
+        title: Text(
+          'Comments Section',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
+        ),
+      ),
+      body: Stack(
+        children: [
+          Image.asset('images/taxi1.jpg',
+              fit: BoxFit.cover,
+              height: double.infinity,
+              // width: double.infinity,
+              color: Colors.yellow[50].withOpacity(0.85),
+              colorBlendMode: BlendMode.srcOver),
+          // Padding(
+          //   padding: const EdgeInsets.fromLTRB(8, 8, 8, 64.8),
+          //   child: SingleChildScrollView(
+          //     child: Column(
+          //       children: commentProvider.comments
+          //           .map((item) => GestureDetector(
+          //                 child: CommentsTile(
+          //                   comment: item,
+          //                 ),
+          //               ))
+          //           .toList(),
+          //     ),
+          //   ),
+          // ),
+
+          //this method retrieves comments from firestore
+          stream = StreamBuilder(
+              stream: _firebaseFirestore,
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                // setState(() {
+
+                return ListView.builder(
+                    itemCount: commentProvider.comments.length,
+                    itemBuilder: (context, index) {
+                      CommentsModel _pubcomment =
+                          commentProvider.comments[index];
+                      return CommentsTile(
+                        comment: _pubcomment,
+                      );
+                    });
+
+                //  });
+                //     ListView(
+                //         children: snapshot.data.docs.map((taxi) {
+                //   CommentsTile(
+                //     comment: taxi,
+                //   );
+                // }).toList());
+              }),
+        ],
+      ),
+    );
   }
 }

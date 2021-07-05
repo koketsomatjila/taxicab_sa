@@ -42,14 +42,15 @@ class ArticleTile extends StatelessWidget {
                     child: RichText(
                       text: TextSpan(children: [
                         TextSpan(
-                          text: '${article.title} \n\n',
+                          text: '${article.title} \n',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
                           ),
                         ),
                         TextSpan(
-                          text: '${article.date} ',
+                          text:
+                              '                                                             ${article.date.toDate().day}-${article.date.toDate().month}-${article.date.toDate().year} ',
                           style: TextStyle(
                               fontStyle: FontStyle.italic,
                               fontSize: 14,

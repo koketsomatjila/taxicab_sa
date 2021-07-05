@@ -11,7 +11,7 @@ class CommentsProvider with ChangeNotifier {
     loadComments();
   }
 
-  loadComments() async {
+  Future loadComments() async {
     comments = await _commentsServices.getComments();
     notifyListeners();
   }

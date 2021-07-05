@@ -20,10 +20,10 @@ void main() async {
     ChangeNotifierProvider.value(
       value: CommentsProvider.initialize(),
     )
-  ], child: MyApp()));
+  ], child: TaxiCabSa()));
 }
 
-class MyApp extends StatelessWidget {
+class TaxiCabSa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

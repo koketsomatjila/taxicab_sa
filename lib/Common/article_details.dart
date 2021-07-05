@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxicab_sa/models/news_article_model.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ArticleDetails extends StatefulWidget {
   final NewsArticleModel article;
@@ -57,21 +59,39 @@ class _ArticleDetailsState extends State<ArticleDetails> {
               Container(
                 color: Colors.white.withOpacity(0.8),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RichText(
-                    text: TextSpan(
-                      style: GoogleFonts.ubuntu(
-                        fontWeight: FontWeight.w400,
-                        height: 1.5,
-                        fontSize: 18,
-                        color: Colors.black,
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 15),
+                  child: Column(
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          style: GoogleFonts.ubuntu(
+                            fontWeight: FontWeight.w400,
+                            height: 1.5,
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                          children: [
+                            TextSpan(
+                                style: GoogleFonts.ubuntu(),
+                                text: widget.article.article),
+                          ],
+                        ),
                       ),
-                      children: [
-                        TextSpan(
-                            style: GoogleFonts.ubuntu(),
-                            text: widget.article.article)
-                      ],
-                    ),
+                      InkWell(
+                        onTap: () async {
+                          await launch("${widget.article.link}");
+                        },
+                        child: Text(
+                          '...for more',
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              decorationThickness: 10,
+                              color: Colors.blue[800],
+                              height: 1.5,
+                              fontSize: 18),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

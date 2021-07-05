@@ -42,3 +42,5 @@ app.*.map.json
 upload_certificate.pem
 keystore.jks
 keystore.jks
+android/app/keystore.jks
+android/app/keystore.jks
