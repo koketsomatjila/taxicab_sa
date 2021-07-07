@@ -33,7 +33,7 @@ class _WesternCapeState extends State<WesternCape> {
               )
             ],
             title: Text(
-              'Taxi Cab SA',
+              'Western Cape',
               textAlign: TextAlign.center,
               style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
             )),

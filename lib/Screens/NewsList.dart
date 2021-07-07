@@ -24,10 +24,9 @@ class _NewsState extends State<News> {
           iconTheme: IconThemeData(color: Colors.orange),
           backgroundColor: Colors.white.withOpacity(0.8),
           title: Text(
-              'Taxi Cab SA',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
-            
+            'Word On The Street',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
           ),
         ),
         // drawer: AppDrawer(),

@@ -41,7 +41,7 @@ class _GautengState extends State<Gauteng> {
             )
           ],
           title: Text(
-            'Taxi Cab SA',
+            'Gauteng',
             textAlign: TextAlign.center,
             style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
           )),

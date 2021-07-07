@@ -26,44 +26,59 @@ class ArticleTile extends StatelessWidget {
           //       color: Colors.black, offset: Offset(-2, -1), blurRadius: 5),
           // ],
         ),
-        child: InkWell(
-          onTap: () {
-            changeScreen(context, ArticleDetails(article: article));
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Row(
-              children: <Widget>[
-                _articleImage(article.picture),
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    width: 275,
-                    child: RichText(
-                      text: TextSpan(children: [
-                        TextSpan(
-                          text: '${article.title} \n',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22,
-                          ),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            InkWell(
+              onTap: () {
+                changeScreen(context, ArticleDetails(article: article));
+              },
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(5, 5, 5, 1),
+                child: Row(
+                  children: <Widget>[
+                    _articleImage(article.picture),
+                    Flexible(
+                      child: Container(
+                        child: RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text: '${article.title} ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                              ),
+                            ),
+                          ], style: TextStyle(color: Colors.black)),
                         ),
-                        TextSpan(
-                          text:
-                              '                                                             ${article.date.toDate().day}-${article.date.toDate().month}-${article.date.toDate().year} ',
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey[600]),
-                        ),
-                      ], style: TextStyle(color: Colors.black)),
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  ],
+                ),
+              ),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(1, 1, 8, 1),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    child: Text(
+                      '${article.date.toDate().day}-${article.date.toDate().month}-${article.date.toDate().year}',
+                      style: TextStyle(
+                          height: 2,
+                          fontStyle: FontStyle.italic,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey[600]),
+                      // textAlign: TextAlign.end,
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

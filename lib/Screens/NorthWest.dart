@@ -33,7 +33,7 @@ class _NorthWestState extends State<NorthWest> {
               )
             ],
             title: Text(
-              'Taxi Cab SA',
+              'North West',
               textAlign: TextAlign.center,
               style: GoogleFonts.aclonica(color: Colors.orange, fontSize: 25),
             )),
